@@ -1,0 +1,100 @@
+.padding-10px {
+    padding: 10px;
+}
+
+.box-sizing-border-box {
+    box-sizing: border-box;
+}
+
+.border-radius-5px {
+    border-radius: 5px;
+}
+
+.blur {
+    opacity: 0.3;
+}
+
+.gray {
+    color: gray;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins';
+}
+
+.app-container {
+    width: 100%;
+    margin: auto;
+}
+
+@media (min-width: 700px) {
+    .app-container {
+        width: 700px;
+    }
+    
+}
+
+.navbar-airbnb-img {
+    height: 50%;
+}
+
+.navbar-container {
+    display: flex; 
+    align-items: center;
+    background: rgb(189,200,218);
+    background: linear-gradient(90deg, rgba(189,200,218,1) 0%, rgba(255,166,225,1) 100%);
+    box-shadow: 0 2px 30px rgb(236, 123, 142);
+    height: 100px;
+}
+
+.navbar-container > *{
+    margin: 0;
+    box-sizing: content-box;
+}
+.hero-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-img {
+    width: 100%;
+}
+
+.hero-h1 {
+    margin-bottom: 16px;
+}
+
+.hero-p {
+    margin: 0;
+}
+
+.cards-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.card-container {
+    position: relative;
+    width: 28%;
+    height: auto;
+    margin: 1%;
+}
+
+.card-person-img {
+    width: 100%;
+    height: auto;
+}
+
+.card-button {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+

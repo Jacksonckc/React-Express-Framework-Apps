@@ -1,0 +1,54 @@
+body {
+  background-color: #282D35;
+  margin: 0;
+}
+
+.header-container {
+  display: flex;
+  background-color: #21222A;
+  align-items: center;
+  padding: 0 50px;
+}
+
+.header-container :nth-child(2) {
+  margin-right: auto;
+  color: #61DAFB;
+}
+
+.header-container :nth-child(3) {
+  color: white;
+  font-size: 22px;
+  font-weight: 600;
+}
+.main-content-container {
+  padding: 20px 50px;
+  color: white;
+  background-image: url(../public/logo512.png);
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-size: contain;
+}
+
+.main-content-container li::marker {
+  font-size: 30px;
+  color: #61DAFB;
+
+}
+
+@media screen {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+    width: 80px;
+    height: 80px;
+  }
+}
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
