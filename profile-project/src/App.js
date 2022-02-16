@@ -8,6 +8,9 @@ import {
   useParams
 } from "react-router-dom";
 
+import { Navbar, Home } from './imports';
+
+
 
 export default function App() {
   return (
@@ -23,6 +26,7 @@ export default function App() {
           <li>
             <Link to="/topics">Topics</Link>
           </li>
+          <Navbar/>
         </ul>
 
         <Switch>
@@ -44,9 +48,6 @@ export default function App() {
   );
 }
 
-function Home() {
-  return <h2>Home</h2>;
-}
 
 function About() {
   return <h2>About</h2>;
@@ -54,7 +55,7 @@ function About() {
 
 function Topics() {
   let match = useRouteMatch();
-  console.log(useRouteMatch())
+
   return (
     <div>
       <h2>Topics</h2>
@@ -70,10 +71,6 @@ function Topics() {
         </li>
       </ul>
 
-      {/* The Topics page has its own <Switch> with more routes
-          that build on the /topics URL path. You can think of the
-          2nd <Route> here as an "index" page for all topics, or
-          the page that is shown when no topic is selected */}
       <Switch>
         <Route path={`${match.path}/:topicId`}>
           <Topic />
