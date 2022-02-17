@@ -1,0 +1,11 @@
+/* Custom CSS classes */
+.padding-sides-20px{
+    padding: 0 20px;
+}
+
+/* Root/parent/general CSS rules */
+body {
+    margin: 0;
+    --color01: aliceblue;
+    --color02: darkgoldenrod;
+}

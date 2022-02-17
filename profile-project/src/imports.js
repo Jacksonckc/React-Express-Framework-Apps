@@ -1,3 +1,5 @@
-export { Navbar } from "./components/Navbar";
+export { AboutMe } from "./components/AboutMe"
 export { Home } from "./components/Home"
-
+export { Contact } from "./components/Contact"
+export { Experience } from "./components/Experience.jsx"
+export { Education } from "./components/Education.jsx"

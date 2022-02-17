@@ -4,86 +4,58 @@ import {
   Switch,
   Route,
   Link,
-  useRouteMatch,
-  useParams
 } from "react-router-dom";
 
-import { Navbar, Home } from './imports';
-
-
+import { Contact, AboutMe, Home, Experience, Education } from './imports';
+import './css/App.css'
 
 export default function App() {
+  function toggleMenu() {
+    let allLis = document.getElementsByClassName('app-navbar')[0].childNodes
+    allLis.forEach(li => li.classList.toggle('showMenu'))
+  }
   return (
     <Router>
       <div>
-        <ul>
+        <ul className='app-navbar'>
+          <button className='toggle-button' onClick={toggleMenu}>
+            =
+          </button>
           <li>
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <Link to="/about">About Me</Link>
           </li>
           <li>
-            <Link to="/topics">Topics</Link>
+            <Link to="/contact">Contact</Link>
           </li>
-          <Navbar/>
+          <li>
+            <Link to="/experience">Experience</Link>
+          </li>
+          <li>
+            <Link to="/education">Education</Link>
+          </li>
         </ul>
 
         <Switch>
-          <Route path="/about">
-            <About />
+          <Route exact path="/about">
+            <AboutMe />
           </Route>
-          <Route path="/topics">
-            <Topics />
+          <Route exact path="/experience">
+            <Experience/>
           </Route>
-          <Route path="/hi">
-            <>hi</>
+          <Route exact path="/education">
+            <Education/>
           </Route>
-          <Route path="/">
+          <Route exact path="/contact">
+            <Contact/>
+          </Route>
+          <Route exact path="/">
             <Home />
           </Route>
         </Switch>
       </div>
     </Router>
   );
-}
-
-
-function About() {
-  return <h2>About</h2>;
-}
-
-function Topics() {
-  let match = useRouteMatch();
-
-  return (
-    <div>
-      <h2>Topics</h2>
-
-      <ul>
-        <li>
-          <Link to={`${match.url}/components`}>Components</Link>
-        </li>
-        <li>
-          <Link to={`${match.url}/props-v-state`}>
-            Props v. State
-          </Link>
-        </li>
-      </ul>
-
-      <Switch>
-        <Route path={`${match.path}/:topicId`}>
-          <Topic />
-        </Route>
-        <Route path={match.path}>
-          <h3>Please select a topic.</h3>
-        </Route>
-      </Switch>
-    </div>
-  );
-}
-
-function Topic() {
-  let { topicId } = useParams();
-  return <h3>Requested topic ID: {topicId}</h3>;
 }

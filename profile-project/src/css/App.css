@@ -1,0 +1,64 @@
+/* Navbar */
+.app-navbar {
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color01);
+    gap: 10px;
+    list-style: none;
+    position: relative;
+}
+
+.app-navbar > li {
+    display: none;
+}
+
+.showMenu {
+    display: block !important;
+}
+
+
+@media (min-width: 500px) {
+    .app-navbar {
+        flex-direction: row;
+    }
+    .app-navbar > li {
+        display: block;
+    }
+    .app-navbar > button {
+        display: none !important;
+    } 
+}
+
+
+.app-navbar > * {
+    padding: 5px;
+    background-color: var(--color02);
+    border-radius: 10%;
+    margin: 0;
+    min-width: 10%;
+    text-align: center;
+    transition: all 2s;
+    position: relative;
+    animation: app-navbar-jumping-animation 3s linear infinite running;
+}
+
+.app-navbar > *:hover {
+    background-color: aqua;
+    animation: app-navbar-jumping-animation paused;
+}
+
+@keyframes app-navbar-jumping-animation {
+
+    25% {
+        transform: translateY(-3px);
+    }
+    50% {
+        transform: translateY(0px);
+    }
+    75% {
+        transform: translateY(3px);
+    }
+
+}
