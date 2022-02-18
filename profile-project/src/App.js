@@ -10,6 +10,12 @@ import { Contact, AboutMe, Home, Experience, Education } from './imports';
 import './css/App.css'
 
 export default function App() {
+  React.useEffect(() => {
+    fetch('/api/test', { body: JSON.stringify({ input: 'hi there' }), headers: { 'content-type': 'application/json' }, method: 'POST' }).then(response => {
+      return response.json()
+    }).then(data => console.log(data))
+  }, [])
+
   function toggleMenu() {
     let allLis = document.getElementsByClassName('app-navbar')[0].childNodes
     allLis.forEach(li => li.classList.toggle('showMenu'))
