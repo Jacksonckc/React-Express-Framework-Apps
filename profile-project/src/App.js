@@ -11,9 +11,15 @@ import './css/App.css'
 
 export default function App() {
   React.useEffect(() => {
-    fetch('/api/test', { body: JSON.stringify({ input: 'hi there' }), headers: { 'content-type': 'application/json' }, method: 'POST' }).then(response => {
-      return response.json()
-    }).then(data => console.log(data))
+    fetch('/api/test', { 
+      body: JSON.stringify({ input: 'hi there' }), 
+      headers: { 'content-type': 'application/json' }, 
+      method: 'POST' })
+      .then(
+        response => {
+          return response.json()
+        })
+        .then(data => console.log(data))
   }, [])
 
   function toggleMenu() {

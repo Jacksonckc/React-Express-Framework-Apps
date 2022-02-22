@@ -10,7 +10,6 @@ import {
 
 export function Experience() {
   let path = useRouteMatch();
-  console.log(path)
   return (
     <Router>
         <div id="experience-page" className='padding-sides-20px'>  

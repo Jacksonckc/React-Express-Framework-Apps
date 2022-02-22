@@ -3,7 +3,7 @@ const bodyParser = require('body-parser')
 const app = express()
 const port = 3001
 
-app.use('/build', express.static('build'))
+// app.use('/build', express.static('build'))
 app.use(bodyParser.json()) 
 
 
@@ -14,6 +14,9 @@ app.get('/', (req, res) => {
 app.post('/api/test', (req, res) => {
   const body = req.body
   res.json({ data: body })
+})
+app.get('/api/test', (req, res) => {
+  res.json({'get': 'test'})
 })
 
 app.listen(port, () => {
