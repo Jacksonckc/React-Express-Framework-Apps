@@ -6,26 +6,15 @@ import {
   Link,
 } from "react-router-dom";
 
-import { Contact, AboutMe, Home, Experience, Education } from './imports';
+import { Authentication, NestedRoute, ConnectServer, Axios } from './imports';
 import './css/App.css'
 
 export default function App() {
-  React.useEffect(() => {
-    fetch('/api/test', { 
-      body: JSON.stringify({ input: 'hi there' }), 
-      headers: { 'content-type': 'application/json' }, 
-      method: 'POST' })
-      .then(
-        response => {
-          return response.json()
-        })
-        .then(data => console.log(data))
-  }, [])
-
   function toggleMenu() {
     let allLis = document.getElementsByClassName('app-navbar')[0].childNodes
     allLis.forEach(li => li.classList.toggle('showMenu'))
   }
+
   return (
     <Router>
       <div>
@@ -34,37 +23,31 @@ export default function App() {
             =
           </button>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/">Authentication</Link>
           </li>
           <li>
-            <Link to="/about">About Me</Link>
+            <Link to="/axios">Axios</Link>
           </li>
           <li>
-            <Link to="/contact">Contact</Link>
+            <Link to="/nested/route">Nested Route</Link>
           </li>
           <li>
-            <Link to="/experience">Experience</Link>
-          </li>
-          <li>
-            <Link to="/education">Education</Link>
+            <Link to="/connect/server">Connect Server</Link>
           </li>
         </ul>
 
         <Switch>
-          <Route exact path="/about">
-            <AboutMe />
-          </Route>
-          <Route exact path="/experience">
-            <Experience/>
-          </Route>
-          <Route exact path="/education">
-            <Education/>
-          </Route>
-          <Route exact path="/contact">
-            <Contact/>
-          </Route>
           <Route exact path="/">
-            <Home />
+            <Authentication />
+          </Route>
+          <Route exact path="/axios">
+            <Axios />
+          </Route>
+          <Route exact path="/nested/route">
+            <NestedRoute/>
+          </Route>
+          <Route exact path="/connect/server">
+            <ConnectServer/>
           </Route>
         </Switch>
       </div>

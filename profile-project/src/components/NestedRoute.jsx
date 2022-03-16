@@ -8,30 +8,32 @@ import {
     useParams
 } from "react-router-dom";
 
-export function Experience() {
+export function NestedRoute() {
   let path = useRouteMatch();
   return (
     <Router>
         <div id="experience-page" className='padding-sides-20px'>  
-        <h2>My Experience</h2>
+        <h2>Different Routes</h2>
         
         <ul>
             <li>
-            <Link to={`${path.url}/jobs`}>Jobs</Link>
+            <Link to={`${path.url}/first`}>
+              First Route
+              </Link>
             </li>
             <li>
-            <Link to={`${path.url}/service`}>
-                Service
-            </Link>
+              <Link to={`${path.url}/second`}>
+                Second Route
+              </Link>
             </li>
         </ul>
 
         <Switch>
-            <Route path={`${path.path}/:type`}>
+            <Route path={`${path.path}/:route`}>
               <Type />
             </Route>
             <Route path={path.path}>
-              <h3>My experiences</h3>
+              <h3>Nested Routes</h3>
             </Route>
         </Switch>
         </div>
@@ -41,5 +43,5 @@ export function Experience() {
 
 function Type() {
 const params = useParams();
-  return <h3>{JSON.stringify(params.type)}</h3>;
+  return <h3>{JSON.stringify(params.route)}</h3>;
 }
