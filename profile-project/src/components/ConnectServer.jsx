@@ -7,11 +7,12 @@ export function ConnectServer() {
     useEffect(() => {
         fetch('/api/test')
         .then(response => response.json())
-        .then(data => {data && console.log('data is here');
-        setFetchData(data)})
+        .then(data => {
+          data && console.log('data is here');
+          setFetchData(data)})
     }, [])
 
-    React.useEffect(() => {
+    useEffect(() => {
         fetch('/api/test', { 
           body: JSON.stringify({ input: 'hi there' }), 
           headers: { 'content-type': 'application/json' }, 
@@ -26,8 +27,8 @@ export function ConnectServer() {
     return(
         <div className='padding-sides-20px'>
             <h2>Server Data</h2>
-            {console.log(fetchData)}
-            {/* <div>{fetchData.score}</div> */}
+            {fetchData && console.log(fetchData)}
+            {fetchData && <div>{fetchData.score}</div>}
         </div>
     )
 }

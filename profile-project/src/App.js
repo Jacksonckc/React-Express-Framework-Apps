@@ -6,7 +6,7 @@ import {
   Link,
 } from "react-router-dom";
 
-import { Authentication, NestedRoute, ConnectServer, Axios } from './imports';
+import { Authentication, NestedRoute, ConnectServer, Axios, UsersPage } from './imports';
 import './css/App.css'
 
 export default function App() {
@@ -34,6 +34,9 @@ export default function App() {
           <li>
             <Link to="/connect/server">Connect Server</Link>
           </li>
+          <li>
+            <Link to="/users/page">Users Page</Link>
+          </li>
         </ul>
 
         <Switch>
@@ -48,6 +51,9 @@ export default function App() {
           </Route>
           <Route exact path="/connect/server">
             <ConnectServer/>
+          </Route>
+          <Route exact path="/users/page">
+            <UsersPage/>
           </Route>
         </Switch>
       </div>
